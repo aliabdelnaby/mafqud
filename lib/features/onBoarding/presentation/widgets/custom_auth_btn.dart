@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/utils/app_colors.dart';
+import '../../../../core/utils/app_colors.dart';
 
 class CustomAuthBtn extends StatelessWidget {
   const CustomAuthBtn({super.key, required this.text, this.onTap});

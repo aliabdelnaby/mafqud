@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/utils/app_colors.dart';
-import 'package:mafqud/core/utils/assets.dart';
-import 'package:mafqud/features/onBoarding/presentation/widgets/custom_auth_btn.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/assets.dart';
+import '../widgets/custom_auth_btn.dart';
+import '../widgets/skip_btn.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -16,6 +17,7 @@ class OnboardingView extends StatelessWidget {
             spacing: 30,
             children: [
               const SizedBox(),
+              SkipBtn(),
               Center(
                 child: Image.asset(
                   Assets.imagesOnBoardingImage,
