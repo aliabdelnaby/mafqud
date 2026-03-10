@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Mafqud',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
     );
   }
 }
