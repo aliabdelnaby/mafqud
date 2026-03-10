@@ -2,9 +2,9 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesEmailLogo
-  /// assets/images/email_logo.svg
-  static const String imagesEmailLogo = "assets/images/email_logo.svg";
+  /// Assets for imagesEmailIcon
+  /// assets/images/email_icon.svg
+  static const String imagesEmailIcon = "assets/images/email_icon.svg";
 
   /// Assets for imagesFacebookIcon
   /// assets/images/facebook_icon.svg
