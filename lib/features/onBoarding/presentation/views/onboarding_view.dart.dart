@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mafqud/core/utils/app_colors.dart';
 import 'package:mafqud/core/utils/assets.dart';
 import 'package:mafqud/features/onBoarding/presentation/widgets/custom_auth_btn.dart';
 
@@ -22,12 +23,12 @@ class OnboardingView extends StatelessWidget {
                   width: 237,
                 ),
               ),
-              const Text(
+              Text(
                 "Welcome",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF233388),
+                  color: AppColors.primaryColor,
                 ),
               ),
               const Text(
@@ -36,7 +37,7 @@ class OnboardingView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xFF233388),
+                  color: AppColors.primaryColor,
                 ),
               ),
               const Text(
@@ -45,7 +46,7 @@ class OnboardingView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF233388),
+                  color: AppColors.primaryColor,
                 ),
               ),
               CustomAuthBtn(text: "LOGIN", onTap: () {}),
@@ -58,4 +59,3 @@ class OnboardingView extends StatelessWidget {
     );
   }
 }
-

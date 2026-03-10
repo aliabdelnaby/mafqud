@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mafqud/core/utils/app_colors.dart';
 
 class CustomAuthBtn extends StatelessWidget {
   const CustomAuthBtn({super.key, required this.text, this.onTap});
@@ -14,7 +15,7 @@ class CustomAuthBtn extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 7),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFF3E5AEE), Color(0xFF233388)],
+            colors: [AppColors.secondaryColor, AppColors.primaryColor],
           ),
           borderRadius: BorderRadius.circular(15),
         ),
