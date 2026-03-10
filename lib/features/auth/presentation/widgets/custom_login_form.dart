@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mafqud/features/auth/presentation/widgets/custom_auth_text_form_field.dart';
+import 'package:mafqud/features/auth/presentation/widgets/forget_password_create_account_widget.dart';
+import 'package:mafqud/features/auth/presentation/widgets/login_with_widget.dart';
+import 'package:mafqud/features/onBoarding/presentation/widgets/custom_auth_btn.dart';
 
 class CustomLoginForm extends StatelessWidget {
   const CustomLoginForm({super.key});
@@ -40,6 +43,12 @@ class CustomLoginForm extends StatelessWidget {
           },
           onChanged: (value) {},
         ),
+        const SizedBox(height: 30),
+        CustomAuthBtn(text: "LOGIN", onTap: () {}),
+        const SizedBox(height: 30),
+        ForgetPasswordAndCreateAccountWidget(),
+        const SizedBox(height: 30),
+        LoginWithWidget(),
       ],
     );
   }

@@ -2,17 +2,13 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesEmailIcon
-  /// assets/images/email_icon.svg
-  static const String imagesEmailIcon = "assets/images/email_icon.svg";
-
   /// Assets for imagesFacebookIcon
-  /// assets/images/facebook_icon.svg
-  static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
+  /// assets/images/facebook_icon.png
+  static const String imagesFacebookIcon = "assets/images/facebook_icon.png";
 
-  /// Assets for imagesInstagramIcon
-  /// assets/images/instagram_icon.svg
-  static const String imagesInstagramIcon = "assets/images/instagram_icon.svg";
+  /// Assets for imagesGoogleIcon
+  /// assets/images/google_icon.png
+  static const String imagesGoogleIcon = "assets/images/google_icon.png";
 
   /// Assets for imagesMafqudAppbar
   /// assets/images/mafqud_appbar.svg
@@ -30,12 +26,8 @@ class Assets {
   /// assets/images/onBoardingImage.png
   static const String imagesOnBoardingImage = "assets/images/onBoardingImage.png";
 
-  /// Assets for imagesPasswordIcon
-  /// assets/images/password_icon.svg
-  static const String imagesPasswordIcon = "assets/images/password_icon.svg";
-
   /// Assets for imagesTwitterIcon
-  /// assets/images/twitter_icon.svg
-  static const String imagesTwitterIcon = "assets/images/twitter_icon.svg";
+  /// assets/images/twitter_icon.png
+  static const String imagesTwitterIcon = "assets/images/twitter_icon.png";
 }
 
