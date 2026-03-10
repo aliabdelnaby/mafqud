@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/assets.dart';
 import '../widgets/custom_auth_btn.dart';
@@ -51,8 +52,18 @@ class OnboardingView extends StatelessWidget {
                   color: AppColors.primaryColor,
                 ),
               ),
-              CustomAuthBtn(text: "LOGIN", onTap: () {}),
-              CustomAuthBtn(text: "SIGN UP", onTap: () {}),
+              CustomAuthBtn(
+                text: "LOGIN",
+                onTap: () {
+                  context.push("/loginView");
+                },
+              ),
+              CustomAuthBtn(
+                text: "SIGN UP",
+                onTap: () {
+                  context.push("/signUpView");
+                },
+              ),
               const SizedBox(),
             ],
           ),
