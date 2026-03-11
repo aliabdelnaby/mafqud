@@ -12,7 +12,7 @@ class SkipBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push('/homeView');
+        context.go('/homeView');
       },
       child: Align(
         alignment: Alignment.centerRight,
