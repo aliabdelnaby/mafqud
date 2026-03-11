@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mafqud/core/my_bloc_observer.dart';
+import 'package:mafqud/core/utils/my_bloc_observer.dart';
 import 'core/router/app_router.dart';
 
 void main() {

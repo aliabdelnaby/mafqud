@@ -12,7 +12,7 @@ class ForgetPasswordAndCreateAccountWidget extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: () {
-              // Navigate to forget password view
+              context.push("/forgetPasswordView");
             },
             child: Text(
               "Forget password ?",
