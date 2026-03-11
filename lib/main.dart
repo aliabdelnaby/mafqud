@@ -18,9 +18,11 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 0,
+
         ),
       ),
     );
