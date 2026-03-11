@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import 'package:mafqud/features/auth/presentation/widgets/custom_auth_text_form_field.dart';
-import 'package:mafqud/features/auth/presentation/widgets/forget_password_create_account_widget.dart';
 import 'package:mafqud/features/auth/presentation/widgets/login_with_widget.dart';
 import 'package:mafqud/features/onBoarding/presentation/widgets/custom_auth_btn.dart';
 
-class CustomLoginForm extends StatelessWidget {
-  const CustomLoginForm({super.key});
+class CustomSignUpForm extends StatelessWidget {
+  const CustomSignUpForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<AuthCubit>();
@@ -17,9 +17,24 @@ class CustomLoginForm extends StatelessWidget {
       builder: (context, state) {
         return Form(
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          key: cubit.loginFormKey,
+          key: cubit.signupFormKey,
           child: Column(
             children: [
+              CustomAuthTextFormField(
+                hintText: "Name",
+                prefix: Icons.person_outline,
+                keyboardType: TextInputType.text,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "This Field is required";
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  cubit.name = value;
+                },
+              ),
+              const SizedBox(height: 30),
               CustomAuthTextFormField(
                 hintText: "Email",
                 prefix: Icons.email_outlined,
@@ -37,6 +52,24 @@ class CustomLoginForm extends StatelessWidget {
                 },
                 onChanged: (value) {
                   cubit.email = value;
+                },
+              ),
+              const SizedBox(height: 30),
+              CustomAuthTextFormField(
+                hintText: "Phone Number",
+                prefix: Icons.call_outlined,
+                keyboardType: TextInputType.phone,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "This Field is required";
+                  }
+                  if (!RegExp(r"^[0-9]{10}$").hasMatch(value)) {
+                    return "Please enter a valid phone number";
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  cubit.phoneNumber = value;
                 },
               ),
               const SizedBox(height: 30),
@@ -71,13 +104,11 @@ class CustomLoginForm extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               CustomAuthBtn(
-                text: "LOGIN",
+                text: "SIGN UP",
                 onTap: () {
-                  if (cubit.loginFormKey.currentState!.validate()) {}
+                  if (cubit.signupFormKey.currentState!.validate()) {}
                 },
               ),
-              const SizedBox(height: 30),
-              ForgetPasswordAndCreateAccountWidget(),
               const SizedBox(height: 30),
               LoginWithWidget(),
             ],

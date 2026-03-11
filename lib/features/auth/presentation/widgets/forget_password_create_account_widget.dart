@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgetPasswordAndCreateAccountWidget extends StatelessWidget {
   const ForgetPasswordAndCreateAccountWidget({super.key});
@@ -26,7 +27,7 @@ class ForgetPasswordAndCreateAccountWidget extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: () {
-              // Navigate to sign up view
+              context.push("/signUpView");
             },
             child: Text(
               "Create new account",
