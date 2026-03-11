@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -10,7 +11,9 @@ class SkipBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.push('/homeView');
+      },
       child: Align(
         alignment: Alignment.centerRight,
         child: Text(

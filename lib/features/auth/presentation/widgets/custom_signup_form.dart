@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import 'package:mafqud/features/auth/presentation/widgets/custom_auth_text_form_field.dart';
@@ -106,7 +107,9 @@ class CustomSignUpForm extends StatelessWidget {
               CustomAuthBtn(
                 text: "SIGN UP",
                 onTap: () {
-                  if (cubit.signupFormKey.currentState!.validate()) {}
+                  if (cubit.signupFormKey.currentState!.validate()) {
+                    context.go('/homeView');
+                  }
                 },
               ),
               const SizedBox(height: 30),
