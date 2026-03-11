@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
 
@@ -11,6 +10,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     this.keyboardType,
     required this.onChanged,
     this.obscureText,
+    this.suffixIcon,
   });
   final String? Function(String?)? validator;
   final String hintText;
@@ -18,6 +18,7 @@ class CustomAuthTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final void Function(String) onChanged;
   final bool? obscureText;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -34,7 +35,6 @@ class CustomAuthTextFormField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hintText,
-
         hintStyle: TextStyle(
           color: Color(0xff666666).withValues(alpha: 0.85),
           fontSize: 14,
@@ -44,6 +44,7 @@ class CustomAuthTextFormField extends StatelessWidget {
           prefix,
           color: Color(0xff666666).withValues(alpha: 0.85),
         ),
+        suffixIcon: suffixIcon,
         isDense: true,
         border: _buildBorder(),
         enabledBorder: _buildBorder(),
