@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,4 +36,3 @@ class LoginView extends StatelessWidget {
     );
   }
 }
-
