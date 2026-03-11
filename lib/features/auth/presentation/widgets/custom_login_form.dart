@@ -19,17 +19,9 @@ class CustomLoginForm extends StatelessWidget {
         if (state is LoginSuccessState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: const Row(
-                children: [
-                  Icon(Icons.mark_email_read_outlined, color: Colors.white),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      'Login successful! Welcome back.',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+              content: Text(
+                'Login successful! Welcome back.',
+                style: TextStyle(color: Colors.white),
               ),
               backgroundColor: Colors.green.shade600,
               behavior: SnackBarBehavior.floating,

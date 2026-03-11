@@ -19,17 +19,9 @@ class CustomSignUpForm extends StatelessWidget {
         if (state is SignUpSuccessState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: const Row(
-                children: [
-                  Icon(Icons.mark_email_read_outlined, color: Colors.white),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      'Signup successful! Welcome aboard.',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+              content: Text(
+                'Signup successful! Welcome aboard.',
+                style: TextStyle(color: Colors.white),
               ),
               backgroundColor: Colors.green.shade600,
               behavior: SnackBarBehavior.floating,
