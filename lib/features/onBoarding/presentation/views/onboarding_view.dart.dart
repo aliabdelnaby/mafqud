@@ -20,11 +20,7 @@ class OnboardingView extends StatelessWidget {
               const SizedBox(),
               SkipBtn(),
               Center(
-                child: Image.asset(
-                  Assets.imagesOnBoardingImage,
-                  height: 278,
-                  width: 237,
-                ),
+                child: Image.asset(Assets.imagesOnBoardingImage, height: 210),
               ),
               Text(
                 "Welcome",
@@ -38,7 +34,7 @@ class OnboardingView extends StatelessWidget {
                 "We are here to help you find your lost loved ones. Through our platform, you can search for them. We want to restore hope to you and help you.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: FontWeight.w400,
                   color: AppColors.primaryColor,
                 ),
@@ -47,7 +43,7 @@ class OnboardingView extends StatelessWidget {
                 "You can now log in or sign up",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 17,
                   fontWeight: FontWeight.w700,
                   color: AppColors.primaryColor,
                 ),

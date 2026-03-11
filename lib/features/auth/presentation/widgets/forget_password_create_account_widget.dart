@@ -18,7 +18,7 @@ class ForgetPasswordAndCreateAccountWidget extends StatelessWidget {
               "Forget password ?",
               style: TextStyle(
                 color: Color(0xff666666),
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -33,7 +33,7 @@ class ForgetPasswordAndCreateAccountWidget extends StatelessWidget {
               "Create new account",
               style: TextStyle(
                 color: Color(0xff666666),
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
               ),
             ),
