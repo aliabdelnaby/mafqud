@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mafqud/core/utils/app_colors.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import 'package:mafqud/features/auth/presentation/widgets/custom_auth_text_form_field.dart';
@@ -14,8 +15,45 @@ class CustomLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<AuthCubit>();
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is LoginSuccessState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Row(
+                children: [
+                  Icon(Icons.mark_email_read_outlined, color: Colors.white),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      'Login successful! Welcome back.',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+              backgroundColor: Colors.green.shade600,
+              behavior: SnackBarBehavior.floating,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              margin: const EdgeInsets.all(16),
+              duration: const Duration(seconds: 4),
+            ),
+          );
+          context.go('/homeView');
+        }
+        if (state is LoginFailureState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errMessage),
+              backgroundColor: Colors.red.shade600,
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+        }
+      },
       builder: (context, state) {
+        final isLoading = state is LoginLoadingState;
         return Form(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           key: cubit.loginFormKey,
@@ -71,14 +109,16 @@ class CustomLoginForm extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 30),
-              CustomAuthBtn(
-                text: "LOGIN",
-                onTap: () {
-                  if (cubit.loginFormKey.currentState!.validate()) {
-                    context.go('/homeView');
-                  }
-                },
-              ),
+              isLoading
+                  ? CircularProgressIndicator(color: AppColors.primaryColor)
+                  : CustomAuthBtn(
+                      text: "LOGIN",
+                      onTap: () async {
+                        if (cubit.loginFormKey.currentState!.validate()) {
+                          cubit.login();
+                        }
+                      },
+                    ),
               const SizedBox(height: 30),
               ForgetPasswordAndCreateAccountWidget(),
               const SizedBox(height: 30),

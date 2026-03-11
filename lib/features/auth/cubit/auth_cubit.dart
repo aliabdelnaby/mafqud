@@ -22,6 +22,22 @@ class AuthCubit extends Cubit<AuthState> {
     emit(ObscurePasswordTextUpdateState());
   }
 
+  Future<void> login() async {
+    if (!loginFormKey.currentState!.validate()) return;
+
+    emit(LoginLoadingState());
+    await Future.delayed(const Duration(seconds: 2));
+    emit(LoginSuccessState());
+  }
+
+  Future<void> signUp() async {
+    if (!signupFormKey.currentState!.validate()) return;
+
+    emit(SignUpLoadingState());
+    await Future.delayed(const Duration(seconds: 2));
+    emit(SignUpSuccessState());
+  }
+
   Future<void> sendResetLink() async {
     if (!forgotPasswordFormKey.currentState!.validate()) return;
 
