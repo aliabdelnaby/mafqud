@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/utils/assets.dart';
+import 'package:mafqud/core/constants/constants.dart';
+import 'package:mafqud/core/models/missing_person_model.dart';
 
 class MissingCard extends StatelessWidget {
-  const MissingCard({super.key});
+  const MissingCard({super.key, required this.person});
+  final MissingPerson person;
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +12,27 @@ class MissingCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 16),
       height: MediaQuery.sizeOf(context).height * 0.3,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           /// 🔹 Background Image
           Positioned.fill(
-            child: Image.asset(
-              Assets.imagesMissingPersonImage,
+            child: Image.network(
+              person.image,
               fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                        : null,
+                  ),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) =>
+                  Image.network(errorNetworkImage),
+              filterQuality: FilterQuality.medium,
             ),
           ),
 
@@ -23,43 +40,45 @@ class MissingCard extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.35,
+              width: MediaQuery.of(context).size.width * 0.38,
               color: Color(0xff333333).withValues(alpha: 0.87),
               padding: const EdgeInsets.all(12),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      "Name",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Text(
+                    person.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 6),
                   Text(
-                    "Some description here",
+                    "Age: ${person.age}",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                     style: TextStyle(color: Colors.white70),
                   ),
                   SizedBox(height: 10),
 
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      "Name",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Text(
+                    "Gov: ${person.governorate}",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Some description here",
+                    "Last seen: ${person.lastSeen}",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
                     style: TextStyle(color: Colors.white70),
                   ),
                 ],

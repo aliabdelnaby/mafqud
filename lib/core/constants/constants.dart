@@ -1,0 +1,1 @@
+String errorNetworkImage = "https://uxwing.com/wp-content/themes/uxwing/download/video-photography-multimedia/error-image-photo-icon.png";

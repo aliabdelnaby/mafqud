@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mafqud/core/data/datasource/missing_person_list.dart';
 import 'package:mafqud/core/utils/assets.dart';
 import 'package:mafqud/features/home/presentation/widgets/filter_by_governorate_widget.dart';
 import 'package:mafqud/features/home/presentation/widgets/missing_card.dart';
@@ -20,9 +21,12 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: missingList.length,
                 itemBuilder: (context, index) {
-                  return const MissingCard();
+                  final person = missingList[index];
+                  return  MissingCard(
+                    person: person,
+                  );
                 },
               ),
             ),
