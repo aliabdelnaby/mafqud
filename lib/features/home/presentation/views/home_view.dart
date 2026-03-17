@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: SvgPicture.asset(Assets.imagesMafqudAppbar)),
-      endDrawer: Drawer(),
+      endDrawer: Drawer(backgroundColor: Colors.white),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(children: [FilterByGovernorateWidget()]),

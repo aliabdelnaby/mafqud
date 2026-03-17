@@ -44,6 +44,8 @@ class _FilterByGovernorateWidgetState extends State<FilterByGovernorateWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           ),
+          backgroundColor: Colors.white,
+          useSafeArea: true,
           builder: (context) {
             return ListView.builder(
               padding: EdgeInsets.all(16),
