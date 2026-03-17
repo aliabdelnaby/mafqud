@@ -5,7 +5,8 @@ import 'package:mafqud/core/data/datasource/list_of_governarets.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
 
 class FilterByGovernorateWidget extends StatefulWidget {
-  const FilterByGovernorateWidget({super.key});
+  const FilterByGovernorateWidget({super.key, required this.onSelected});
+  final Function(String) onSelected;
 
   @override
   State<FilterByGovernorateWidget> createState() =>
@@ -57,6 +58,7 @@ class _FilterByGovernorateWidgetState extends State<FilterByGovernorateWidget> {
                     setState(() {
                       selectedGovernorate = governorates[index];
                     });
+                    widget.onSelected(selectedGovernorate!);
                     if (kDebugMode) {
                       print(governorates[index]);
                     }
