@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
           elevation: 0,
         ),
       ),
