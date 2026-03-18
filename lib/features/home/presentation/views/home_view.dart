@@ -44,6 +44,9 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             FilterByGovernorateWidget(
+              trailing: [
+                Icon(Icons.filter_list_outlined, color: Colors.grey.shade600),
+              ],
               onSelected: (governorate) {
                 setState(() {
                   selectedGovernorate = governorate;

@@ -5,8 +5,15 @@ import 'package:mafqud/core/data/datasource/list_of_governarets.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
 
 class FilterByGovernorateWidget extends StatefulWidget {
-  const FilterByGovernorateWidget({super.key, required this.onSelected});
+  const FilterByGovernorateWidget({
+    super.key,
+    required this.onSelected,
+    this.trailing,
+    this.hintText,
+  });
   final Function(String) onSelected;
+  final Iterable<Widget>? trailing;
+  final String? hintText;
 
   @override
   State<FilterByGovernorateWidget> createState() =>
@@ -18,16 +25,16 @@ class _FilterByGovernorateWidgetState extends State<FilterByGovernorateWidget> {
   @override
   Widget build(BuildContext context) {
     return SearchBar(
-      hintText: selectedGovernorate ?? "Filter by governorate",
+      hintText:
+          selectedGovernorate ?? widget.hintText ?? "Filter by governorate",
       hintStyle: WidgetStateProperty.resolveWith(
         (states) => TextStyle(
-          color: Color(0xff333333).withValues(alpha: 0.87),
-          fontSize: 15,
+          color: Color(0xff666666).withValues(alpha: 0.85),
+          fontSize: 14,
           fontWeight: FontWeight.w400,
-          letterSpacing: 0.2,
         ),
       ),
-      trailing: [Icon(Icons.filter_list_outlined, color: Colors.grey.shade600)],
+      trailing: widget.trailing,
       backgroundColor: WidgetStateProperty.resolveWith(
         (states) => Colors.white,
       ),

@@ -6,7 +6,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     super.key,
     this.validator,
     required this.hintText,
-    required this.prefix,
+    this.prefix,
     this.keyboardType,
     required this.onChanged,
     this.obscureText,
@@ -14,7 +14,7 @@ class CustomAuthTextFormField extends StatelessWidget {
   });
   final String? Function(String?)? validator;
   final String hintText;
-  final IconData prefix;
+  final IconData? prefix;
   final TextInputType? keyboardType;
   final void Function(String) onChanged;
   final bool? obscureText;
